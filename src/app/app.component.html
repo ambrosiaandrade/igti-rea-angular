@@ -1,0 +1,37 @@
+<div class="container">
+  <form>
+    <div class="form-group">
+      <h1 class="card-title text-danger">ANGULAR TODO</h1>
+      <!-- Input the tasks -->
+      <div class="input-group-prepend">
+        <input
+          [(ngModel)]="newTask"
+          value=""
+          name="newTask"
+          type="text"
+          class="form-control"
+          placeholder="Digite uma tarefa"
+          autofocus
+        />
+        <button (click)="addToList()" class="btn btn-danger">+</button>
+      </div>
+      <br />
+      <!-- Show the tasks -->
+      <div *ngFor="let item of items; let index = index">
+        <div class="card">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              {{ item }}
+              <input
+                (click)="deleteFromList(index)"
+                type="button"
+                class="btn btn-outline-dark float-right"
+                value="Delete"
+              />
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
